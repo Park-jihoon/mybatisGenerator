@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="C:\Users\pohin\Documents\파라다이스\workspace\pcity_pis\PISEX\WebContent\WEB-INF\lib\ojdbc6-11.2.0.4.jar" />
+
+  <context id="PISTables" targetRuntime="MyBatis3">
+    <!--주석 안만들어도 됨-->
+    <commentGenerator>
+      <property name="suppressAllComments" value="true" />
+      <property name="suppressDate" value="true" />
+    </commentGenerator>
+
+    <!-- db 커넥션 정보 -->
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+        connectionURL="jdbc:oracle:thin:@localhost:1521:IRDEV"
+        userId="test"
+        password="test#1">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <!--VO 모델 설정-->
+    <javaModelGenerator targetPackage="pis.vo" targetProject="src/main/java">
+      <property name="enableSubPackages" value="false" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <!--XML 설정-->
+    <sqlMapGenerator targetPackage="pis.sqlmapper"  targetProject="src/main/java">
+      <property name="enableSubPackages" value="false" />
+    </sqlMapGenerator>
+
+    <!--Mapper 설정-->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="pis.mapper"  targetProject="src/main/java">
+      <property name="enableSubPackages" value="false" />
+    </javaClientGenerator>
+
+    <!--테이블 정보-->
+    <table schema="PIS_DEV" tableName="OS_SYS_COMM_CD" domainObjectName="CommCode" alias=""
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    
+
+  </context>
+</generatorConfiguration>
